@@ -78,8 +78,6 @@ to install a specific Rust toolchain with `cargo` included.
 
 ## Cross-compilation
 
-<em>(Note: `cross` support is currently untested in this Action; the code was merely inherited from the `rust-cargo` Action. If it does not work, please open an [issue](https://github.com/clechasseur/rs-cargo/issues).)</em>
-
 In order to make cross-compilation an easy process,
 this Action can install [`cross`](https://github.com/cross-rs/cross)
 on demand if `use-cross` input is enabled; the `cross` executable will be invoked
