@@ -9,6 +9,7 @@ jobs:
       run:
         working-directory: rust_tests/working
     steps:
+      - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
       - uses: ./
         with:
@@ -22,6 +23,7 @@ jobs:
       run:
         working-directory: rust_tests/working
     steps:
+      - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
       - uses: ./
         with:
@@ -37,6 +39,7 @@ jobs:
       run:
         working-directory: working
     steps:
+      - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-unknown-linux-gnu
