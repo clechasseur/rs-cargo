@@ -1,21 +1,21 @@
 {
-    "problemMatcher": [
+  "problemMatcher": [
+    {
+      "owner": "rust",
+      "pattern": [
         {
-            "owner": "rust",
-            "pattern": [
-                {
-                    "regexp": "^(warning|warn|error)(\\[(.*)\\])?: (.*)$",
-                    "severity": 1,
-                    "message": 4,
-                    "code": 3
-                },
-                {
-                    "regexp": "^([\\s->=]*(.*):(\\d*):(\\d*)|.*)$",
-                    "file": 2,
-                    "line": 3,
-                    "column": 4
-                }
-            ]
+          "regexp": "^(warning|warn|error)(\\[(.*)\\])?: (.*)$",
+          "severity": 1,
+          "message": 4,
+          "code": 3
+        },
+        {
+          "regexp": "^([\\s->=]*(.*):(\\d*):(\\d*)|.*)$",
+          "file": 2,
+          "line": 3,
+          "column": 4
         }
-    ]
+      ]
+    }
+  ]
 }
