@@ -5,9 +5,6 @@ on: workflow_dispatch
 jobs:
   working:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: rust_tests/working
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
@@ -15,29 +12,24 @@ jobs:
         with:
           command: check
           toolchain: stable
-          args: --all-targets --all-features
+          args: --package working --all-targets --all-features
 
   not-working:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: rust_tests/working
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
       - uses: ./
         with:
           command: build
+          args: --package not_working
       - uses: ./
         with:
           command: build
-          args: --all-features
+          args: --package not_working --all-features
 
   cross:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: working
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
@@ -46,5 +38,5 @@ jobs:
       - uses: ./
         with:
           command: build
-          args: --target aarch64-unknown-linux-gnu
+          args: --package working --target aarch64-unknown-linux-gnu
           use-cross: true
