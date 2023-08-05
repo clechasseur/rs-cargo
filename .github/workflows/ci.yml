@@ -20,3 +20,43 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run test
+
+  rust-tests-working:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: check
+          toolchain: stable
+          args: --package working --all-targets --all-features
+
+  rust-tests-not-working:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: build
+          args: --package not_working
+      - uses: ./
+        with:
+          command: build
+          args: --package not_working --all-features
+        continue-on-error: true
+
+  rust-tests-cross:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-unknown-linux-gnu
+      - uses: ./
+        with:
+          command: build
+          args: --package working --target aarch64-unknown-linux-gnu
+          use-cross: true
+    
