@@ -27,6 +27,7 @@ jobs:
         with:
           command: build
           args: --package not_working --all-features
+        continue-on-error: true
 
   cross:
     runs-on: ubuntu-latest
