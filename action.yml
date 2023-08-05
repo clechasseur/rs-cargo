@@ -1,9 +1,6 @@
-name: 'rust-cargo'
+name: 'rs-cargo'
 description: 'Run cargo command'
-author: 'actions-rs team'
-branding:
-  icon: play-circle
-  color: black
+author: 'clechasseur'
 inputs:
   command:
     description: Cargo command to run (ex. `check` or `build`)
@@ -17,7 +14,9 @@ inputs:
   use-cross:
     description: Use cross instead of cargo
     default: false
-
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
+branding:
+  icon: package
+  color: black
