@@ -1,4 +1,4 @@
-# Rust `cargo` Action
+# `rs-cargo` Action
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/clechasseur/rs-cargo/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/clechasseur/rs-cargo/actions/workflows/ci.yml)
