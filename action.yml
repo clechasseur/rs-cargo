@@ -14,6 +14,9 @@ inputs:
   use-cross:
     description: Use cross instead of cargo
     default: false
+  working-directory:
+    description: Directory where to perform cargo command
+    required: false
 runs:
   using: 'node16'
   main: 'dist/index.js'

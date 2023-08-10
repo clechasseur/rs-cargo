@@ -12,6 +12,7 @@ export interface Input {
   toolchain?: string;
   args: string[];
   useCross: boolean;
+  workingDirectory?: string;
 }
 
 export function get(): Input {
@@ -22,11 +23,13 @@ export function get(): Input {
     toolchain = toolchain.slice(1);
   }
   const useCross = input.getInputBool("use-cross");
+  const workingDirectory = input.getInput("working-directory");
 
   return {
     command: command,
     args: args,
     useCross: useCross,
     toolchain: toolchain || undefined,
+    workingDirectory: workingDirectory || undefined,
   };
 }
