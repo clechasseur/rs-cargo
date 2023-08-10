@@ -1,5 +1,0 @@
-[workspace]
-members = [
-    "rust_tests/working",
-    "rust_tests/not_working"
-]

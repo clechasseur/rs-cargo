@@ -61,12 +61,13 @@ Why would you want to use this Action instead?
 
 ## Inputs
 
-| Name        | Required | Description                                                              | Type   | Default |
-| ------------| :------: | -------------------------------------------------------------------------| ------ | --------|
-| `command`   | ✓        | Cargo command to run, ex. `check` or `build`                             | string |         |
-| `toolchain` |          | Rust toolchain name to use                                               | string |         |
-| `args`      |          | Arguments for the cargo command                                          | string |         |     
-| `use-cross` |          | Use [`cross`](https://github.com/cross-rs/cross) instead of `cargo` | bool   | false   |
+| Name                | Required | Description                                                         | Type   | Default |
+| --------------------| :------: | --------------------------------------------------------------------| ------ | --------|
+| `command`           | ✓        | Cargo command to run, ex. `check` or `build`                        | string |         |
+| `toolchain`         |          | Rust toolchain name to use                                          | string |         |
+| `args`              |          | Arguments for the cargo command                                     | string |         |     
+| `use-cross`         |          | Use [`cross`](https://github.com/cross-rs/cross) instead of `cargo` | bool   | false   |
+| `working-directory` |          | Directory where to perform cargo command                            | string |         |
 
 ## Toolchain
 

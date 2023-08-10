@@ -30,7 +30,8 @@ jobs:
         with:
           command: check
           toolchain: stable
-          args: --package working --all-targets --all-features
+          args: --all-targets --all-features
+          working-directory: rust_tests/working
 
   rust-tests-not-working:
     runs-on: ubuntu-latest
@@ -40,11 +41,12 @@ jobs:
       - uses: ./
         with:
           command: build
-          args: --package not_working
+          working-directory: rust_tests/not_working
       - uses: ./
         with:
           command: build
-          args: --package not_working --all-features
+          args: --all-features
+          working-directory: rust_tests/not_working
         continue-on-error: true
 
   rust-tests-cross:
@@ -57,6 +59,7 @@ jobs:
       - uses: ./
         with:
           command: build
-          args: --package working --target aarch64-unknown-linux-gnu
+          args: --target aarch64-unknown-linux-gnu
           use-cross: true
+          working-directory: rust_tests/working
     

@@ -26,9 +26,9 @@ export function get(): Input {
   const workingDirectory = input.getInput("working-directory");
 
   return {
-    command: command,
-    args: args,
-    useCross: useCross,
+    command,
+    args,
+    useCross,
     toolchain: toolchain || undefined,
     workingDirectory: workingDirectory || undefined,
   };
