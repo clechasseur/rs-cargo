@@ -6,7 +6,7 @@
 This GitHub Action runs specified [`cargo`](https://github.com/rust-lang/cargo)
 command on a Rust language project.
 
-This GitHub Action has been forked from [actions-rs/cargo](https://github.com/actions-rs/cargo). The original project published under the name `rust-cargo`. See [LICENSE](LICENSE) for copyright attribution details.
+This GitHub Action has been forked from [actions-rs/cargo](https://github.com/actions-rs/cargo). The original project published under the name [`rust-cargo`](https://github.com/marketplace/actions/rust-cargo). See [LICENSE](LICENSE) for copyright attribution details.
 
 **Table of Contents**
 
