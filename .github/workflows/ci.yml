@@ -62,4 +62,13 @@ jobs:
           args: --target aarch64-unknown-linux-gnu
           use-cross: true
           working-directory: rust_tests/working
-    
+
+  rust-clippy-warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: clippy
+          working-directory: rust_tests/clippy_warnings
