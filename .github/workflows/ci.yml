@@ -30,8 +30,7 @@ jobs:
         with:
           command: check
           toolchain: stable
-          args: --all-targets --all-features
-          working-directory: rust_tests/working
+          args: --package working --all-targets --all-features
 
   rust-tests-not-working:
     runs-on: ubuntu-latest
@@ -41,12 +40,11 @@ jobs:
       - uses: ./
         with:
           command: build
-          working-directory: rust_tests/not_working
+          args: --package not_working
       - uses: ./
         with:
           command: build
-          args: --all-features
-          working-directory: rust_tests/not_working
+          args: --package not_working --all-features
         continue-on-error: true
 
   rust-tests-cross:
@@ -71,4 +69,4 @@ jobs:
       - uses: ./
         with:
           command: clippy
-          working-directory: rust_tests/clippy_warnings
+          args: --package clippy_warnings
