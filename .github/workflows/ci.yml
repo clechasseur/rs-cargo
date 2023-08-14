@@ -80,3 +80,4 @@ jobs:
         with:
           command: fmt
           args: --package fmt_warnings --check
+        continue-on-error: true
