@@ -70,3 +70,13 @@ jobs:
         with:
           command: clippy
           args: --package clippy_warnings
+
+  rust-fmt-warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: fmt
+          args: --package fmt_warnings --check

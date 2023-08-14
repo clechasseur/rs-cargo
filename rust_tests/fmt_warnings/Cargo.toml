@@ -1,0 +1,6 @@
+[package]
+name = "fmt_warnings"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

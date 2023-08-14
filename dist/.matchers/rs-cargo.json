@@ -1,7 +1,7 @@
 {
   "problemMatcher": [
     {
-      "owner": "rs-cargo",
+      "owner": "rs-cargo-rustc-clippy",
       "pattern": [
         {
           "regexp": "^(?:\\x1b\\[[\\d;]+m)*([Ww]arn(?:ing)?|[Ee]rror)(?:\\x1b\\[[\\d;]+m)*(?:\\[(.*)\\])?(?:\\x1b\\[[\\d;]+m)*:(?:\\x1b\\[[\\d;]+m)*\\s+(?:\\x1b\\[[\\d;]+m)*([^\\x1b]*)(?:\\x1b\\[[\\d;]+m)*$",
@@ -14,6 +14,18 @@
           "file": 1,
           "line": 2,
           "column": 3
+        }
+      ]
+    },
+    {
+      "owner": "rs-cargo-rustfmt",
+      "severity": "warning",
+      "pattern": [
+        {
+          "regexp": "^(?:\\x1b\\[[\\d;]+m)*(Diff in (.+)) at line (\\d+):(?:\\x1b\\[[\\d;]+m)*$",
+          "message": 1,
+          "file": 2,
+          "line": 3
         }
       ]
     }

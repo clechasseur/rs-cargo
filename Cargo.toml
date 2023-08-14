@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "rust_tests/clippy_warnings",
+    "rust_tests/fmt_warnings",
     "rust_tests/working",
     "rust_tests/not_working"
 ]

@@ -3,17 +3,5 @@
 version = 3
 
 [[package]]
-name = "clippy_warnings"
-version = "0.1.0"
-
-[[package]]
 name = "fmt_warnings"
-version = "0.1.0"
-
-[[package]]
-name = "not_working"
-version = "0.1.0"
-
-[[package]]
-name = "working"
 version = "0.1.0"
