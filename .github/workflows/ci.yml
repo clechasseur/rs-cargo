@@ -30,8 +30,7 @@ jobs:
         with:
           command: check
           toolchain: stable
-          args: --all-targets --all-features
-          working-directory: rust_tests/working
+          args: --package working --all-targets --all-features
 
   rust-tests-not-working:
     runs-on: ubuntu-latest
@@ -41,12 +40,11 @@ jobs:
       - uses: ./
         with:
           command: build
-          working-directory: rust_tests/not_working
+          args: --package not_working
       - uses: ./
         with:
           command: build
-          args: --all-features
-          working-directory: rust_tests/not_working
+          args: --package not_working --all-features
         continue-on-error: true
 
   rust-tests-cross:
@@ -62,4 +60,24 @@ jobs:
           args: --target aarch64-unknown-linux-gnu
           use-cross: true
           working-directory: rust_tests/working
-    
+
+  rust-clippy-warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: clippy
+          args: --package clippy_warnings
+
+  rust-fmt-warnings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: ./
+        with:
+          command: fmt
+          args: --package fmt_warnings --check
+        continue-on-error: true
