@@ -1,4 +1,5 @@
 [workspace]
+resolver = "2"
 members = [
     "rust_tests/clippy_warnings",
     "rust_tests/fmt_warnings",
