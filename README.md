@@ -29,9 +29,9 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - uses: clechasseur/rs-cargo@v1
+      - uses: clechasseur/rs-cargo@v2
         with:
           command: build
           args: --release --all-features
@@ -49,7 +49,7 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --release --all-features
 ```
@@ -97,11 +97,11 @@ jobs:
     name: Linux ARMv7
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: armv7-unknown-linux-gnueabihf
-      - uses: clechasseur/rs-cargo@v1
+      - uses: clechasseur/rs-cargo@v2
         with:
           use-cross: true
           command: build
