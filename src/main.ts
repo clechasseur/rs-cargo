@@ -41,7 +41,7 @@ async function main(): Promise<void> {
   try {
     await run(actionInput);
   } catch (error) {
-    core.setFailed((<Error>error).message);
+    core.setFailed((error as Error).message);
   }
 }
 
