@@ -92,3 +92,6 @@ typings/
 
 # Rust output
 target/
+
+# For macOS
+.DS_Store
