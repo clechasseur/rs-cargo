@@ -37,6 +37,9 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - uses: actions-rust-lang/setup-rust-toolchain@b113a30d27a8e59c969077c0a0168cc13dab5ffc
+        with:
+          matcher: false
+          rustflags: ""
       - uses: ./
         with:
           command: build
@@ -66,6 +69,9 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - uses: actions-rust-lang/setup-rust-toolchain@b113a30d27a8e59c969077c0a0168cc13dab5ffc
+        with:
+          matcher: false
+          rustflags: ""
       - uses: ./
         with:
           command: clippy
@@ -76,6 +82,9 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - uses: actions-rust-lang/setup-rust-toolchain@b113a30d27a8e59c969077c0a0168cc13dab5ffc
+        with:
+          matcher: false
+          rustflags: ""
       - uses: ./
         with:
           command: fmt
