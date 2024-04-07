@@ -32,12 +32,12 @@
     "url": "https://github.com/clechasseur/rs-cargo/issues"
   },
   "dependencies": {
-    "@clechasseur/rs-actions-core": "^3.0.2",
+    "@clechasseur/rs-actions-core": "^3.0.3",
     "string-argv": "^0.3.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.12.5",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "@vercel/ncc": "^0.38.1",
