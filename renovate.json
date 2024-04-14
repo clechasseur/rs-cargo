@@ -1,14 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    "helpers:pinGitHubActionDigests",
-    ":disableRateLimiting"
-  ],
-  "packageRules": [
-    {
-      "matchManagers": ["npm"],
-      "rangeStrategy": "bump"
-    }
-  ]
+  "extends": ["github>clechasseur/renovate-config:renovate"]
 }
