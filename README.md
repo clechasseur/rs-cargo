@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
       - uses: clechasseur/rs-cargo@v2
         with:
           command: build
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
       - run: cargo build --release --all-features
 ```
 
@@ -74,7 +74,7 @@ Why would you want to use this Action instead?
 By default this Action will call whatever `cargo` binary is available
 in the current [virtual environment](https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions).
 
-You can use [`dtolnay/rust-toolchain`](https://github.com/dtolnay/rust-toolchain)
+You can use [`actions-rust-lang/setup-rust-toolchain`](https://github.com/actions-rust-lang/setup-rust-toolchain)
 to install a specific Rust toolchain with `cargo` included.
 
 ## Cross-compilation
@@ -98,7 +98,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           targets: armv7-unknown-linux-gnueabihf
       - uses: clechasseur/rs-cargo@v2
