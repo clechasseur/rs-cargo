@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: actions-rust-lang/setup-rust-toolchain@1fbea72663f6d4c03efaab13560c8a24cfd2a7cc # v1.9.0
+      - uses: actions-rust-lang/setup-rust-toolchain@4d1965c9142484e48d40c19de54b5cba84953a06 # v1.10.0
       - uses: ./
         with:
           command: check
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: actions-rust-lang/setup-rust-toolchain@1fbea72663f6d4c03efaab13560c8a24cfd2a7cc # v1.9.0
+      - uses: actions-rust-lang/setup-rust-toolchain@4d1965c9142484e48d40c19de54b5cba84953a06 # v1.10.0
         with:
           matcher: false
           rustflags: ""
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: actions-rust-lang/setup-rust-toolchain@1fbea72663f6d4c03efaab13560c8a24cfd2a7cc # v1.9.0
+      - uses: actions-rust-lang/setup-rust-toolchain@4d1965c9142484e48d40c19de54b5cba84953a06 # v1.10.0
         with:
           target: aarch64-unknown-linux-gnu
       - uses: ./
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: actions-rust-lang/setup-rust-toolchain@1fbea72663f6d4c03efaab13560c8a24cfd2a7cc # v1.9.0
+      - uses: actions-rust-lang/setup-rust-toolchain@4d1965c9142484e48d40c19de54b5cba84953a06 # v1.10.0
         with:
           matcher: false
           rustflags: ""
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: actions-rust-lang/setup-rust-toolchain@1fbea72663f6d4c03efaab13560c8a24cfd2a7cc # v1.9.0
+      - uses: actions-rust-lang/setup-rust-toolchain@4d1965c9142484e48d40c19de54b5cba84953a06 # v1.10.0
         with:
           matcher: false
           rustflags: ""
