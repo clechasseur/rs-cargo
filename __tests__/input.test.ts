@@ -2,20 +2,22 @@ import * as input from "../src/input";
 
 const testEnvVars = {
   INPUT_COMMAND: "build",
+  INPUT_TOOLCHAIN: "+nightly",
   // There are few unnecessary spaces here to check that args parser works properly
   INPUT_ARGS:
     "   --release --target x86_64-unknown-linux-gnu    --no-default-features --features unstable       ",
-  "INPUT_USE-CROSS": "true",
-  INPUT_TOOLCHAIN: "+nightly",
+  INPUT_TOOL: "cross",
+  "INPUT_CACHE-KEY": "rs-cargo-tests",
 };
 
-describe("actions-rs/cargo/input", () => {
+describe("input", () => {
   beforeEach(() => {
-    for (const key in testEnvVars)
+    for (const key in testEnvVars) {
       process.env[key] = testEnvVars[key as keyof typeof testEnvVars];
+    }
   });
 
-  it("Parses action input into cargo input", () => {
+  it("Parses action input into rs-cargo input", () => {
     const result = input.get();
 
     expect(result.command).toBe("build");
@@ -27,7 +29,8 @@ describe("actions-rs/cargo/input", () => {
       "--features",
       "unstable",
     ]);
-    expect(result.useCross).toBe(true);
     expect(result.toolchain).toBe("nightly");
+    expect(result.tool).toBe("cross");
+    expect(result.cacheKey).toBe("rs-cargo-tests");
   });
 });

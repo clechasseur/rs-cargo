@@ -11,11 +11,14 @@ inputs:
   args:
     description: Arguments for the cargo command
     required: false
-  use-cross:
-    description: Use cross instead of cargo
-    default: false
   working-directory:
     description: Directory where to perform cargo command
+    required: false
+  tool:
+    description: Tool to use instead of cargo ([`cross`, `cargo-hack`])
+    required: false
+  cache-key:
+    description: Cache key used when using a non-cargo tool
     required: false
 runs:
   using: 'node20'
