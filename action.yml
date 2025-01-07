@@ -19,7 +19,7 @@ inputs:
     required: false
   cache-key:
     description: Cache key used when using a non-cargo tool
-    required: false
+    default: rs-cargo
 runs:
   using: 'node20'
   main: 'dist/index.js'
