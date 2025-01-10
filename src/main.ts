@@ -1,40 +1,10 @@
 import path from "path";
 
 import * as core from "@actions/core";
-import * as exec from "@actions/exec";
 import { issueCommand } from "@actions/core/lib/command";
 
 import * as input from "./input";
-import { Cargo, Cross, CargoHack } from "@clechasseur/rs-actions-core";
-
-async function getProgram(actionInput: input.Input) {
-  switch (actionInput.tool) {
-    case "cross":
-      return await Cross.getOrInstall(actionInput.cacheKey);
-    case "cargo-hack":
-      return await CargoHack.getOrInstall(actionInput.cacheKey);
-    default:
-      return await Cargo.get();
-  }
-}
-
-export async function run(actionInput: input.Input): Promise<void> {
-  const program = await getProgram(actionInput);
-
-  let args: string[] = [];
-  if (actionInput.toolchain) {
-    args.push(`+${actionInput.toolchain}`);
-  }
-  args.push(actionInput.command);
-  args = args.concat(actionInput.args);
-
-  const options: exec.ExecOptions = {};
-  if (actionInput.workingDirectory) {
-    options.cwd = path.join(process.cwd(), actionInput.workingDirectory);
-  }
-
-  await program.call(args, options);
-}
+import { run } from "./run";
 
 async function main(): Promise<void> {
   // Note: the matchers used here were copied from here:

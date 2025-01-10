@@ -16,6 +16,12 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+      - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
+        with:
+          components: clippy,rustfmt
+          matcher: false
+          rustflags: ""
+          target: x86_64-unknown-linux-gnu,aarch64-unknown-linux-gnu
       - run: npm ci
       - run: npm run lint
       - run: npm run build
@@ -60,9 +66,11 @@ jobs:
       - uses: ./
         with:
           command: build
+          toolchain: stable
           args: --target aarch64-unknown-linux-gnu
           working-directory: rust_tests/working
           tool: cross
+          cache-key: 'rs-cargo-tests'
 
   rust-tests-cargo-hack:
     runs-on: ubuntu-24.04
@@ -75,8 +83,10 @@ jobs:
       - uses: ./
         with:
           command: check
+          toolchain: stable
           working-directory: rust_tests/working
           tool: cargo-hack
+          cache-key: 'rs-cargo-tests'
 
   rust-clippy-warnings:
     runs-on: ubuntu-24.04
@@ -84,6 +94,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
         with:
+          components: clippy
           matcher: false
           rustflags: ""
       - uses: ./
@@ -97,6 +108,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions-rust-lang/setup-rust-toolchain@11df97af8e8102fd60b60a77dfbf58d40cd843b8 # v1.10.1
         with:
+          components: rustfmt
           matcher: false
           rustflags: ""
       - uses: ./
