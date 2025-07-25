@@ -105,3 +105,11 @@ jobs:
 ## License
 
 [MIT license](LICENSE)
+
+## Contributing
+
+See [CONTRIBUTING](CONTRIBUTING.md).
+
+## Development
+
+See [DEVELOPMENT](DEVELOPMENT.md).
