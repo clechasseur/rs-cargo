@@ -2,9 +2,10 @@ This guide is meant for people wishing to contribute to this open-source project
 
 ## Prerequisites
 
-### Node.js v20
+### Node.js v24
 
-Since this is a JavaScript action, you will need Node.js v20.x. If you do not have it installed, you can install it in [a variety of ways](https://nodejs.org/en/download).
+Since this is a JavaScript action, you will need Node.js v24.x.
+If you do not have it installed, you can install it in [a variety of ways](https://nodejs.org/en/download).
 
 ## Development
 
