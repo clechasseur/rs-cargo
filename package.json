@@ -2,7 +2,7 @@
   "name": "rs-cargo",
   "version": "4.0.1",
   "type": "module",
-  "private": false,
+  "private": true,
   "description": "Run cargo command",
   "main": "dist/index.js",
   "directories": {
@@ -10,11 +10,12 @@
     "test": "__tests__"
   },
   "scripts": {
-    "all": "npm run lint && npm run build && npm run test",
+    "all": "npm run lint && npm run package && npm run test",
     "bundle": "cp -r .matchers ./dist/",
-    "build": "rm -rf ./dist/* && ncc build src/main.ts --minify && npm run bundle",
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "format": "prettier --write 'src/**/*.ts' '__tests__/**/*.ts'",
     "lint": "oxlint",
+    "package": "rm -rf ./dist/* && npm run build && npm run bundle",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
   },
   "repository": {
@@ -41,13 +42,17 @@
     "string-argv": "^0.3.2"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@tsconfig/node-lts": "^24.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.14",
-    "@vercel/ncc": "^0.38.4",
     "jest": "^30.2.0",
     "oxlint": "^1.50.0",
     "prettier": "^3.8.1",
+    "rollup": "^4.59.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   }
