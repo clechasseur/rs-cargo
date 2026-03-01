@@ -1,4 +1,4 @@
-import * as input from "../src/input";
+import * as input from "../src/input.js";
 
 const testEnvVars = {
   INPUT_COMMAND: "build",
