@@ -1,6 +1,7 @@
 {
   "name": "rs-cargo",
   "version": "4.0.1",
+  "type": "module",
   "private": false,
   "description": "Run cargo command",
   "main": "dist/index.js",
@@ -14,7 +15,7 @@
     "build": "rm -rf ./dist/* && ncc build src/main.ts --minify && npm run bundle",
     "format": "prettier --write 'src/**/*.ts' '__tests__/**/*.ts'",
     "lint": "oxlint",
-    "test": "jest -c jest.config.json"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,13 @@
     "node": ">=24.0.0"
   },
   "dependencies": {
-    "@clechasseur/rs-actions-core": "^6.0.2",
+    "@actions/core": "^3.0.0",
+    "@actions/exec": "^3.0.0",
+    "@clechasseur/rs-actions-core": "^7.0.3",
     "string-argv": "^0.3.2"
   },
   "devDependencies": {
+    "@tsconfig/node-lts": "^24.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.14",
     "@vercel/ncc": "^0.38.4",

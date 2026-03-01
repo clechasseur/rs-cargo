@@ -2,7 +2,7 @@ import path from "path";
 
 import * as exec from "@actions/exec";
 
-import * as input from "./input";
+import * as input from "./input.js";
 import {
   Cargo,
   CargoHack,
