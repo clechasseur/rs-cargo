@@ -79622,7 +79622,7 @@ async function run(actionInput) {
 async function main() {
     // Note: the matchers used here were copied from here:
     // https://github.com/actions-rust-lang/setup-rust-toolchain/blob/12a4c2d9dc308e1b990c2f2e472947348bb41a20/rust.json
-    const matchersPath = path__default.join(__dirname, ".matchers");
+    const matchersPath = path__default.join(import.meta.dirname, ".matchers");
     process.stdout.write(`::add-matcher::${path__default.join(matchersPath, "rs-cargo.json")}${os$1.EOL}`);
     const actionInput = get();
     try {
