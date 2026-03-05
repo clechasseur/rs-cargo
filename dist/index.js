@@ -36128,16 +36128,16 @@ const allowedRedirect = ["GET", "HEAD"];
  * @param options - Options to control policy behavior.
  */
 function redirectPolicy$1(options = {}) {
-    const { maxRetries = 20 } = options;
+    const { maxRetries = 20, allowCrossOriginRedirects = false } = options;
     return {
         name: redirectPolicyName$1,
         async sendRequest(request, next) {
             const response = await next(request);
-            return handleRedirect(next, response, maxRetries);
+            return handleRedirect(next, response, maxRetries, allowCrossOriginRedirects);
         },
     };
 }
-async function handleRedirect(next, response, maxRetries, currentRetries = 0) {
+async function handleRedirect(next, response, maxRetries, allowCrossOriginRedirects, currentRetries = 0) {
     const { request, status, headers } = response;
     const locationHeader = headers.get("location");
     if (locationHeader &&
@@ -36148,6 +36148,14 @@ async function handleRedirect(next, response, maxRetries, currentRetries = 0) {
             status === 307) &&
         currentRetries < maxRetries) {
         const url = new URL(locationHeader, request.url);
+        // Only follow redirects to the same origin by default.
+        if (!allowCrossOriginRedirects) {
+            const originalUrl = new URL(request.url);
+            if (url.origin !== originalUrl.origin) {
+                logger$4.verbose(`Skipping cross-origin redirect from ${originalUrl.origin} to ${url.origin}.`);
+                return response;
+            }
+        }
         request.url = url.toString();
         // POST request with Status code 303 should be converted into a
         // redirected GET request if the redirect url is present in the location header
@@ -36158,7 +36166,7 @@ async function handleRedirect(next, response, maxRetries, currentRetries = 0) {
         }
         request.headers.delete("Authorization");
         const res = await next(request);
-        return handleRedirect(next, res, maxRetries, currentRetries + 1);
+        return handleRedirect(next, res, maxRetries, allowCrossOriginRedirects, currentRetries + 1);
     }
     return response;
 }
@@ -43494,6 +43502,7 @@ function normalizeProcessEntities(value) {
       maxExpansionDepth: 10,
       maxTotalExpansions: 1000,
       maxExpandedLength: 100000,
+      maxEntityCount: 100,
       allowedTags: null,
       tagFilter: null
     };
@@ -43507,6 +43516,7 @@ function normalizeProcessEntities(value) {
       maxExpansionDepth: value.maxExpansionDepth ?? 10,
       maxTotalExpansions: value.maxTotalExpansions ?? 1000,
       maxExpandedLength: value.maxExpandedLength ?? 100000,
+      maxEntityCount: value.maxEntityCount ?? 100,
       allowedTags: value.allowedTags ?? null,
       tagFilter: value.tagFilter ?? null
     };
@@ -43571,8 +43581,9 @@ class DocTypeReader {
     }
 
     readDocType(xmlData, i) {
-
         const entities = Object.create(null);
+        let entityCount = 0;
+
         if (xmlData[i + 3] === 'O' &&
             xmlData[i + 4] === 'C' &&
             xmlData[i + 5] === 'T' &&
@@ -43590,11 +43601,19 @@ class DocTypeReader {
                         let entityName, val;
                         [entityName, val, i] = this.readEntityExp(xmlData, i + 1, this.suppressValidationErr);
                         if (val.indexOf("&") === -1) { //Parameter entities are not supported
+                            if (this.options.enabled !== false &&
+                                this.options.maxEntityCount &&
+                                entityCount >= this.options.maxEntityCount) {
+                                throw new Error(
+                                    `Entity count (${entityCount + 1}) exceeds maximum allowed (${this.options.maxEntityCount})`
+                                );
+                            }
                             const escaped = entityName.replace(/[.\-+*:]/g, '\\.');
                             entities[entityName] = {
                                 regx: RegExp(`&${escaped};`, "g"),
                                 val: val
                             };
+                            entityCount++;
                         }
                     }
                     else if (hasBody && hasSeq(xmlData, "!ELEMENT", i)) {
