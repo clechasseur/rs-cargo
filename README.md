@@ -16,6 +16,7 @@ See [LICENSE](LICENSE) for copyright attribution details.
 * [Inputs](#inputs)
 * [Toolchain](#toolchain)
 * [Cross-compilation](#cross-compilation)
+* [Release immutability](#release-immutability)
 * [License](#license)
 
 ## Example workflow
@@ -101,6 +102,13 @@ jobs:
           args: --target armv7-unknown-linux-gnueabihf
           tool: cross
 ```
+
+## Release immutability
+
+Starting with release 5.0.0, this GitHub action's releases will be marked as [immutable](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases). This means that once a release is created, its tag cannot be modified in any way.
+
+Previously, best practices for using GitHub actions in workflows were to pin the actions to a specific Git commit hash. With immutable releases, this is no longer necessary and the actual Git tag is safe to use. Because of this, starting with release 5.0.0, this GitHub action will **no longer provide a floating major version tag** (like `v5`, for example). To use a specific version of this action, pin it to the release tag (like `v5.0.0`).
+
 
 ## License
 
