@@ -33,7 +33,7 @@
     "url": "https://github.com/clechasseur/rs-cargo/issues"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=24.14.1"
   },
   "dependencies": {
     "@actions/core": "^3.0.0",
