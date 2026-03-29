@@ -109,7 +109,6 @@ Starting with release 5.0.0, this GitHub action's releases will be marked as [im
 
 Previously, best practices for using GitHub actions in workflows were to pin the actions to a specific Git commit hash. With immutable releases, this is no longer necessary and the actual Git tag is safe to use. Because of this, starting with release 5.0.0, this GitHub action will **no longer provide a floating major version tag** (like `v5`, for example). To use a specific version of this action, pin it to the release tag (like `v5.0.0`).
 
-
 ## License
 
 [MIT license](LICENSE)
