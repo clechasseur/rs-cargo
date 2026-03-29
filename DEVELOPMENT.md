@@ -1,4 +1,5 @@
-This guide is meant for people wishing to contribute to this open-source project. For more information on contributing, see [CONTRIBUTING](CONTRIBUTING.md).
+This guide is meant for people wishing to contribute to this open-source project.
+For more information on contributing, see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Prerequisites
 
@@ -21,13 +22,13 @@ npm install
 
 The project includes all required commands via `npm` scripts.
 
-| `npm` command    | Effect                                             |
-|------------------|----------------------------------------------------|
-| `npm test`       | Run the tests                                      |
-| `npm run lint`   | Run `oxlint` on the code                           |
-| `npm run format` | Run `prettier` to format the code                  |
-| `npm run build`  | Rebuild the package, cleaning up `dist` beforehand |
-| `npm run all`    | Rebuild package, run `oxlint` and run the tests    |
+| `npm` command     | Effect                                             |
+|-------------------|----------------------------------------------------|
+| `npm test`        | Run the tests                                      |
+| `npm run lint`    | Run `oxlint` on the code                           |
+| `npm run format`  | Run `prettier` to format the code                  |
+| `npm run package` | Rebuild the package, cleaning up `dist` beforehand |
+| `npm run all`     | Rebuild package, run `oxlint` and run the tests    |
 
 ## Questions?
 

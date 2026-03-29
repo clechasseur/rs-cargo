@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: actions-rust-lang/setup-rust-toolchain@a0b538fa0b742a6aa35d6e2c169b4bd06d225a98 # v1.15.3
-      - uses: clechasseur/rs-cargo@v5.0.2
+      - uses: clechasseur/rs-cargo@v5.0.3
         with:
           command: build
           args: --release --all-features
@@ -96,7 +96,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@a0b538fa0b742a6aa35d6e2c169b4bd06d225a98 # v1.15.3
         with:
           targets: armv7-unknown-linux-gnueabihf
-      - uses: clechasseur/rs-cargo@v5.0.2
+      - uses: clechasseur/rs-cargo@v5.0.3
         with:
           command: build
           args: --target armv7-unknown-linux-gnueabihf
@@ -108,7 +108,6 @@ jobs:
 Starting with release 5.0.0, this GitHub action's releases will be marked as [immutable](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases). This means that once a release is created, its tag cannot be modified in any way.
 
 Previously, best practices for using GitHub actions in workflows were to pin the actions to a specific Git commit hash. With immutable releases, this is no longer necessary and the actual Git tag is safe to use. Because of this, starting with release 5.0.0, this GitHub action will **no longer provide a floating major version tag** (like `v5`, for example). To use a specific version of this action, pin it to the release tag (like `v5.0.0`).
-
 
 ## License
 
