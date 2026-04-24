@@ -36,7 +36,7 @@
     "node": ">=24.0.0"
   },
   "dependencies": {
-    "@actions/core": "^3.0.0",
+    "@actions/core": "^3.0.1",
     "@actions/exec": "^3.0.0",
     "@clechasseur/rs-actions-core": "^8.0.0",
     "string-argv": "^0.3.2"
