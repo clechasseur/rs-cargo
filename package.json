@@ -1,6 +1,6 @@
 {
   "name": "rs-cargo",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "type": "module",
   "private": true,
   "description": "Run cargo command",
@@ -38,7 +38,7 @@
   "dependencies": {
     "@actions/core": "^3.0.0",
     "@actions/exec": "^3.0.0",
-    "@clechasseur/rs-actions-core": "^7.0.6",
+    "@clechasseur/rs-actions-core": "^8.0.0",
     "string-argv": "^0.3.2"
   },
   "devDependencies": {
