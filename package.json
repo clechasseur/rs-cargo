@@ -16,7 +16,7 @@
     "format": "prettier --write 'src/**/*.ts' '__tests__/**/*.ts'",
     "lint": "oxlint",
     "package": "rm -rf ./dist/* && npm run build && npm run bundle",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/exec": "^3.0.0",
-    "@clechasseur/rs-actions-core": "^8.0.4",
+    "@clechasseur/rs-actions-core": "^10.0.0",
     "string-argv": "^0.3.2"
   },
   "devDependencies": {
