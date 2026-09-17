@@ -3,33 +3,19 @@ import path from "path";
 import * as exec from "@actions/exec";
 
 import * as input from "./input.js";
-import {
-  Cargo,
-  CargoHack,
-  CargoHackOptions,
-  Cross,
-  CrossOptions,
-} from "@clechasseur/rs-actions-core";
+import { Cargo, CargoInstallOptions, CargoLike } from "@clechasseur/rs-actions-core";
 
 export async function getProgram(actionInput: input.Input) {
-  switch (actionInput.tool) {
-    case "cross": {
-      const options: CrossOptions = {
-        toolchain: actionInput.toolchain,
-        primaryKey: actionInput.cacheKey,
-      };
-      return await Cross.getOrInstall(options);
-    }
-    case "cargo-hack": {
-      const options: CargoHackOptions = {
-        toolchain: actionInput.toolchain,
-        primaryKey: actionInput.cacheKey,
-      };
-      return await CargoHack.getOrInstall(options);
-    }
-    default:
-      return await Cargo.get(actionInput.toolchain);
+  const options: CargoInstallOptions = {
+    toolchain: actionInput.toolchain,
+    primaryKey: actionInput.cacheKey,
+  };
+
+  if (actionInput.tool) {
+    return await CargoLike.getOrInstall(actionInput.tool, options);
   }
+
+  return await Cargo.get(options);
 }
 
 export async function run(actionInput: input.Input): Promise<void> {
