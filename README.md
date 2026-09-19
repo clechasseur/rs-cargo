@@ -31,9 +31,9 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions-rust-lang/setup-rust-toolchain@a0b538fa0b742a6aa35d6e2c169b4bd06d225a98 # v1.15.3
-      - uses: clechasseur/rs-cargo@v5.0.6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
+      - uses: clechasseur/rs-cargo@v5.1.0
         with:
           command: build
           args: --release --all-features
@@ -49,26 +49,26 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions-rust-lang/setup-rust-toolchain@a0b538fa0b742a6aa35d6e2c169b4bd06d225a98 # v1.15.3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
       - run: cargo build --release --all-features
 ```
 
 Why would you want to use this Action instead?
 
-1. Transparent `cross` or `cargo-hack` installation and execution with `tool` input
+1. Transparent `cargo`-like tool installation (like `cross` or `cargo-hack`)
 2. Warnings and errors issued by `cargo` will be displayed in GitHub UI
 
 ## Inputs
 
-| Name                | Required | Description                                                                                                                            | Type   | Default  |
-| --------------------| :------: | ---------------------------------------------------------------------------------------------------------------------------------------| ------ | ---------|
-| `command`           | ✓        | Cargo command to run, ex. `check` or `build`                                                                                           | string |          |
-| `toolchain`         |          | Rust toolchain name to use                                                                                                             | string |          |
-| `args`              |          | Arguments for the cargo command                                                                                                        | string |          |
-| `working-directory` |          | Directory where to perform cargo command                                                                                               | string |          |
-| `tool`              |          | Tool to use instead of `cargo` ([`cross`](https://github.com/cross-rs/cross) or [`cargo-hack`](https://github.com/taiki-e/cargo-hack)) | string |          |
-| `cache-key`         |          | Cache key when using a non-`cargo` `tool`                                                                                              | string | rs-cargo |
+| Name                | Required | Description                                                                                                                              | Type   | Default  |
+| --------------------| :------: | -----------------------------------------------------------------------------------------------------------------------------------------| ------ | ---------|
+| `command`           | ✓        | Cargo command to run, ex. `check` or `build`                                                                                             | string |          |
+| `toolchain`         |          | Rust toolchain name to use                                                                                                               | string |          |
+| `args`              |          | Arguments for the cargo command                                                                                                          | string |          |
+| `working-directory` |          | Directory where to perform cargo command                                                                                                 | string |          |
+| `tool`              |          | Tool to use instead of `cargo` (ex: [`cross`](https://github.com/cross-rs/cross), [`cargo-hack`](https://github.com/taiki-e/cargo-hack)) | string |          |
+| `cache-key`         |          | Cache key when using a non-`cargo` `tool`                                                                                                | string | rs-cargo |
 
 ## Toolchain
 
@@ -92,11 +92,11 @@ jobs:
     name: Linux ARMv7
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions-rust-lang/setup-rust-toolchain@a0b538fa0b742a6aa35d6e2c169b4bd06d225a98 # v1.15.3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
         with:
           targets: armv7-unknown-linux-gnueabihf
-      - uses: clechasseur/rs-cargo@v5.0.6
+      - uses: clechasseur/rs-cargo@v5.1.0
         with:
           command: build
           args: --target armv7-unknown-linux-gnueabihf
