@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
-      - uses: clechasseur/rs-cargo@v5.1.0
+      - uses: clechasseur/rs-cargo@v5.1.1
         with:
           command: build
           args: --release --all-features
@@ -96,7 +96,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@ecabd13d1c56bd1345c230e542e9144811ad706f # v2.0.0
         with:
           targets: armv7-unknown-linux-gnueabihf
-      - uses: clechasseur/rs-cargo@v5.1.0
+      - uses: clechasseur/rs-cargo@v5.1.1
         with:
           command: build
           args: --target armv7-unknown-linux-gnueabihf
