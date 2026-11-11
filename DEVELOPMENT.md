@@ -3,9 +3,9 @@ For more information on contributing, see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Prerequisites
 
-### Node.js v26
+### Node.js v24
 
-Since this is a JavaScript action, you will need Node.js v26.x.
+Since this is a JavaScript action, you will need Node.js v24.x.
 If you do not have it installed, you can install it in [a variety of ways](https://nodejs.org/en/download).
 
 ## Development

@@ -33,12 +33,13 @@
     "url": "https://github.com/clechasseur/rs-cargo/issues"
   },
   "engines": {
-    "node": ">=26.0.0"
+    "node": ">=24.0.0"
   },
   "dependencies": {
+    "@actions/cache": "^6.2.0",
     "@actions/core": "^3.0.1",
     "@actions/exec": "^3.0.0",
-    "@clechasseur/rs-actions-core": "^11.0.0",
+    "@clechasseur/rs-actions-core": "^10.0.3",
     "string-argv": "^0.4.0"
   },
   "devDependencies": {
@@ -46,9 +47,9 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.1",
-    "@tsconfig/node26": "^26.0.1",
+    "@tsconfig/node-lts": "^24.0.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^26.6.6",
+    "@types/node": "^24.19.2",
     "jest": "^30.5.2",
     "oxlint": "^1.93.0",
     "prettier": "^3.9.10",
