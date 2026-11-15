@@ -47,7 +47,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.1",
-    "@tsconfig/node-lts": "^24.0.1",
+    "@tsconfig/node-lts": "^26.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.19.2",
     "jest": "^30.5.2",
